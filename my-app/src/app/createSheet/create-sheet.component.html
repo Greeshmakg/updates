@@ -1,0 +1,27 @@
+<div class="create-a-sheet">
+	<form [formGroup]="createSheet" novalidate>
+		<div class="form-group">
+			<label>Save As:</label>
+			<input class="form-control" formControlName="fileName"/>
+			<button (click)="addSheet()" class="btn pull-right">Create</button>
+		</div>
+		<div class="form-group">
+			<label>Columns to be Included:</label>
+			<div class="form-input">
+				<input class="form-control" formControlName="sheetColumns" #columnName (keyup.enter)="updateColumns(columnName.value);columnName.value='';"/>
+				<ul class="suggestions-list">
+					<li *ngFor = "let gridColumn of gridColumns">{{ gridColumn }}<span class="clear-list"><i class="material-icons">clear</i></span></li>
+				</ul>
+			</div>
+		</div>
+		<div class="form-group">
+			<label>Accesible to:</label>
+			<div class="form-input">
+				<input class="form-control" formControlName="employeeName" #empName (keyup.enter)="updatePermissions(empName.value);empName.value='';"/>
+				<ul class="suggestions-list">
+					<li *ngFor = "let emp of permissionsTo">{{ emp }}<span class="clear-list"><i class="material-icons">clear</i></span></li>
+				</ul>
+			</div>
+		</div>
+	</form>
+</div>

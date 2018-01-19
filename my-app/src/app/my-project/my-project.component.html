@@ -1,0 +1,17 @@
+ <button (click)="newUpdate()" class="btn">Add an update</button>
+ <button (click)="onBtExport()" class="btn">Export</button>
+ <div class="date-filter dropdown-wrapper">
+	  <input [matDatepicker]="picker" placeholder="Choose a date" [formControl]="date">
+	  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+	  <mat-datepicker #picker></mat-datepicker>
+ </div>
+ 
+ <ag-grid-angular style="width: 100%; height: 500px" class="ag-theme-fresh update-grid"
+                 [rowData]="rowData"
+                 [columnDefs]="columnDefs"
+				 [enableColResize]="true"
+				 [floatingFilter]="true"
+				 [defaultColDef]="defaultColDef"
+				 [enableFilter]="true"
+				 (gridReady)="onGridReady($event)">
+</ag-grid-angular>
